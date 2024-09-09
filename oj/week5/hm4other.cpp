@@ -27,14 +27,11 @@ int main()
             topics.push_back(a);
         }
         cin>>n;
-        int z=0;
         while(n--){
-            z++;
             member a;
             int x;
             a.work_left = a.last = 0;
             cin>>a.pid>>a.k;
-            a.pid=z;
             for(int i=0;i<a.k;i++){
                 cin>>x;
                 a.pidk.push_back(x);
@@ -42,12 +39,12 @@ int main()
             staff.push_back(a);
         }
         while(1){
-            for(int i=0;i<topics.size();i++)
-                if(time>=topics[i].t0 && topics[i].finished + topics[i].q_num < topics[i].num)
-            {
-                topics[i].t0+=topics[i].dt;
-                topics[i].q_num=min(++topics[i].q_num, topics[i].num-topics[i].finished);//49
-            }
+            for(int i=0;i<topics.size();i++){
+                if(time>=topics[i].t0 && topics[i].finished + topics[i].q_num < topics[i].num){
+                    topics[i].t0+=topics[i].dt;
+                    topics[i].q_num=min(++topics[i].q_num, topics[i].num-topics[i].finished);//49
+                }
+            }   
             sort(staff.begin(), staff.end());
             for(int i=0; i < staff.size();i++){
                 if(!staff[i].work_left)

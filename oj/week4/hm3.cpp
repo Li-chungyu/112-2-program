@@ -94,7 +94,7 @@ class Fraction{
             return *this;
         }
         friend ostream& operator<<(ostream &os, Fraction f){
-             if(f.denominator == 1){
+            if(f.denominator == 1){
                 os << "(" << f.numerator << ")" << endl;
             }else{
                 os << "(" << f.numerator << "/" << f.denominator << ")" ;
